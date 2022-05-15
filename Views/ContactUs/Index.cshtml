@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact Us</title>
+    <link href="~/css/contactus.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript">
+        function fun() {
+            alert("Mesajınız alınmıştır.");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="action_page.php">
+
+            <label for="fname">İsim</label>
+            <input type="text" id="fname" name="firstname" placeholder="İsminiz">
+
+            <label for="lname">Soyisim</label>
+            <input type="text" id="lname" name="lastname" placeholder="Soyisminiz">
+
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" name="email" placeholder="Mail Adresiniz">
+
+            <label for="country">Ülke</label>
+            <select id="country" name="country">
+                <option value="turkiye">Türkiye</option>
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <label for="subject">Mesaj</label>
+            <textarea id="subject" name="subject" placeholder="Mesajınızı buraya yazınız." style="height:200px"></textarea>
+
+            <a href="/default/index" onclick="fun();" class="btn btn-primary">Gönder</a>
+
+
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model ProductCore.Data.Models.Product
+@{
+    ViewData["Title"] = "ProductAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Product Add Page</h1>
+
+<br />
+@using (Html.BeginForm("ProductAdd", "Product", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ProductBrand)
+    @Html.TextBoxFor(x => x.ProductBrand, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductPrice)
+    @Html.TextBoxFor(x => x.ProductPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductImageURL)
+    @Html.TextBoxFor(x => x.ProductImageURL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductStock)
+    @Html.TextBoxFor(x => x.ProductStock, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Category)
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductDescription)
+    @Html.TextAreaFor(x => x.ProductDescription, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Save</button>
+}

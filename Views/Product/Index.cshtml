@@ -1,0 +1,43 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@model IPagedList<ProductCore.Data.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Product List</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Product Brand</th>
+        <th>Category Name</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Product Image</th>
+        <th>Product Stock</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Product Details</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>@item.ProductBrand</td>
+            <td>@item.Category.CategoryName</td>
+            <td>@item.ProductDescription</td>
+            <td>@item.ProductPrice</td>
+            <td>@item.ProductImageURL</td>
+            <td>@item.ProductStock</td>
+            <td><a href="/Product/ProductDelete/@item.ProductId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Product/ProductGet/@item.ProductId" class="btn btn-info">Update</a></td>
+            <td><a href="#" class="btn btn-warning">Details</a></td>
+
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<a href="/Product/ProductAdd" class="btn btn-primary">New Product</a>
